@@ -100,12 +100,22 @@ public class MainUI extends JFrame {
 		panel.add(btnAddNewAuthor);
 		
 		JButton btnNewBook = new JButton("Add New Book");
+		btnNewBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoadUI(new AddBookUI());
+			}
+		});
 		btnNewBook.setBackground(UIManager.getColor("CheckBox.background"));
 		btnNewBook.setBorderPainted(false);
 		btnNewBook.setOpaque(true);
 		panel.add(btnNewBook);
 		
 		JButton btnAllBooks = new JButton("All Books");
+		btnAllBooks.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoadUI(new AllBooksList());
+			}
+		});
 		btnAllBooks.setBackground(UIManager.getColor("CheckBox.background"));
 		btnAllBooks.setBorderPainted(false);
 		btnAllBooks.setOpaque(true);
