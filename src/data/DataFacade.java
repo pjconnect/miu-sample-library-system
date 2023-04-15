@@ -3,17 +3,25 @@ package data;
 import java.util.*;
 
 public class DataFacade {
-	
-	List<User> user = new ArrayList<User>();
-	
-	
-	DataFacade(){
-		user.add(new User());
+
+	private static DataFacade dataFacade;
+
+	List<User> users = new ArrayList<>();
+
+	public static DataFacade getInstance(){
+		if(dataFacade == null){
+			dataFacade = new DataFacade();
+		}
+
+		return dataFacade;
 	}
 	
-	
-	List<User> getUsers(){
-		return user;
+	private DataFacade(){
+		//populate test data
+		users.addAll(TestData.getTestUsers());
 	}
 
+	public List<User> getUsers() {
+		return users;
+	}
 }

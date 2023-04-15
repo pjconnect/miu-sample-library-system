@@ -1,18 +1,14 @@
 package ui;
 
+import controller.SystemController;
+
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import javax.naming.ldap.Control;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.BoxLayout;
 import java.awt.GridLayout;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -24,10 +20,14 @@ public class LoginUI extends JFrame {
 	private JTextField txtUsername;
 	private JTextField txtPassword;
 
+	private SystemController controller = new SystemController();
+
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -84,7 +84,7 @@ public class LoginUI extends JFrame {
 		panel_1.add(txtUsername);
 		txtUsername.setColumns(10);
 		
-		txtPassword = new JTextField();
+		txtPassword = new JPasswordField();
 		txtPassword.setBounds(22, 219, 371, 44);
 		panel_1.add(txtPassword);
 		txtPassword.setColumns(10);
@@ -92,8 +92,14 @@ public class LoginUI extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				var main = new MainUI();
-				main.show();
+				var user = controller.Login(txtUsername.getText(), txtPassword.getText());
+				if(user == null){
+					JOptionPane.showMessageDialog(null, "Username or password wrong");
+					return;
+				}
+
+				new MainUI().setVisible(true);
+
 			}
 		});
 		btnLogin.setBounds(264, 292, 126, 44);

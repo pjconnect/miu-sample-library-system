@@ -68,6 +68,10 @@ public class AddMemberUI extends JPanel {
 		JButton btnNewButton_1 = new JButton("Add Member");
 		btnNewButton_1.setBounds(475, 479, 218, 75);
 		add(btnNewButton_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setBounds(105, 386, 61, 16);
+		add(lblNewLabel_2);
 
 	}
 }
