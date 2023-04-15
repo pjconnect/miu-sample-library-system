@@ -88,12 +88,22 @@ public class MainUI extends JFrame {
 		panel.add(btnExistingMember);
 		
 		JButton btnViewAllMembers = new JButton("View All Members");
+		btnViewAllMembers.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoadUI(new MemberListUI());
+			}
+		});
 		btnViewAllMembers.setBackground(UIManager.getColor("CheckBox.background"));
 		btnViewAllMembers.setBorderPainted(false);
 		btnViewAllMembers.setOpaque(true);
 		panel.add(btnViewAllMembers);
 		
 		JButton btnAddNewAuthor = new JButton("Add New Author");
+		btnAddNewAuthor.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoadUI(new AddAuthorUI());
+			}
+		});
 		btnAddNewAuthor.setBackground(UIManager.getColor("CheckBox.background"));
 		btnAddNewAuthor.setBorderPainted(false);
 		btnAddNewAuthor.setOpaque(true);
