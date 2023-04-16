@@ -12,11 +12,11 @@ import java.awt.event.ActionEvent;
 
 public class CheckoutBookUI extends JPanel {
 
+	private SystemController controller = SystemController.getInstance();
+	
 	/**
 	 * Create the panel.
 	 */
-
-	private SystemController controller = SystemController.getInstance();
 	public CheckoutBookUI() {
 		setBackground(SystemColor.window);
 		setLayout(null);

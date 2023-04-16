@@ -72,7 +72,11 @@ public class DataFacade {
         return checkoutBooks;
     }
 
-    public void addCheckoutBook(Book book, Member member) {
+    public void addCheckoutBook(int id, Book book, Member member) {
         this.checkoutBooks.add(new CheckoutBooks(book, member));
+    }
+
+    public void removeCheckout(CheckoutBooks selectedCheckout) {
+        this.checkoutBooks.remove(selectedCheckout);
     }
 }

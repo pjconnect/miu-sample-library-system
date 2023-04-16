@@ -85,15 +85,23 @@ public class SystemController {
                 outBooks ++;
             }
         }
-        if(outBooks >= book.copyOfBooks){
+        if(outBooks >= book.getCopyOfBooks()){
             return false;
         }
         //add to check out
-        df.addCheckoutBook(book, member);
+        df.addCheckoutBook(checkoutList.size() + 1, book, member);
         return true;
     }
 
     public List<CheckoutBooks> getCheckoutBooks() {
         return df.getCheckoutBooks();
+    }
+
+    public void returnBook(CheckoutBooks selectedCheckout) {
+        df.removeCheckout(selectedCheckout);
+    }
+
+    public void updateBookCopies(Book selectedBook, int numberOfCopies) {
+        selectedBook.setCopyOfBooks(numberOfCopies);
     }
 }

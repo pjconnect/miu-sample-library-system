@@ -5,7 +5,15 @@ public class Book {
     public final String title;
     public final String ISBN;
     public final Author author;
-    public final int copyOfBooks;
+    private int copyOfBooks;
+
+    public int getCopyOfBooks(){
+        return copyOfBooks;
+    }
+
+    public void setCopyOfBooks(int copies){
+        copyOfBooks = copies;
+    }
 
     public Book(int id, String title, String ISBN, Author author, int copyOfBooks) {
         this.ID = id;

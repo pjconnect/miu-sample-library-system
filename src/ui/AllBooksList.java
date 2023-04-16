@@ -68,7 +68,7 @@ public class AllBooksList extends JPanel {
 			data[i][1] = book.title;
 			data[i][2] = book.ISBN;
 			data[i][3] = book.author.toString();
-			data[i][4] = String.valueOf(book.copyOfBooks);
+			data[i][4] = String.valueOf(book.getCopyOfBooks());
 
 			i++;
 		}

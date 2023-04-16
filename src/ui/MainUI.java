@@ -172,6 +172,11 @@ public class MainUI extends JFrame {
         btnCheckoutBook.setOpaque(true);
 
         btnReturnBook = new JButton("Return Book");
+        btnReturnBook.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		LoadUI(new ReturnBookUI());
+        	}
+        });
         btnPanel.add(btnReturnBook);
         btnReturnBook.setBackground(UIManager.getColor("CheckBox.background"));
         btnReturnBook.setOpaque(true);
@@ -187,6 +192,11 @@ public class MainUI extends JFrame {
         btnViewCheckouts.setOpaque(true);
 
         btnUpdateBookCopy = new JButton("Update Book Copy");
+        btnUpdateBookCopy.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		LoadUI(new UpdateBookCopyUI());
+        	}
+        });
         btnPanel.add(btnUpdateBookCopy);
         btnUpdateBookCopy.setBackground(UIManager.getColor("CheckBox.background"));
         btnUpdateBookCopy.setOpaque(true);
