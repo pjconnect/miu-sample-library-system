@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JButton;
 
 public class NewAddressUI extends JFrame {
 
@@ -36,6 +38,14 @@ public class NewAddressUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("New Address");
+		lblNewLabel.setBounds(6, 6, 121, 16);
+		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Add New");
+		btnNewButton.setBounds(305, 220, 117, 29);
+		contentPane.add(btnNewButton);
 	}
-
 }

@@ -13,4 +13,9 @@ public class Address {
         this.State = State;
         this.Zip = Zip;
     }
+
+    @Override
+    public String toString(){
+        return Street + "," + City + "," + State + "," + Zip;
+    }
 }

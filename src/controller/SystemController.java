@@ -1,9 +1,9 @@
 package controller;
 
-import data.DataFacade;
-import data.User;
+import data.*;
 
 import javax.swing.*;
+import java.util.List;
 
 public class SystemController {
 
@@ -42,5 +42,29 @@ public class SystemController {
 
     public void logOut() {
         loggedInUser = null;
+    }
+
+    public List<Address> getAddresses() {
+        return this.df.getAddresses();
+    }
+    
+    public void addAddress(Address address){
+        df.addAddress(address);
+    }
+
+    public void addMember(Member member) {
+        df.addMember(member);
+    }
+
+    public List<Member> getMembers() {
+        return df.getMembers();
+    }
+
+    public void addAuthor(Author author) {
+        df.addAuthor(author);
+    }
+
+    public List<Author> getAuthors() {
+        return df.getAuthors();
     }
 }

@@ -5,6 +5,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import controller.SystemController;
+import data.Address;
+import data.Author;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -13,6 +18,7 @@ public class AddBookUI extends JPanel {
 	private JTextField txtTitle;
 	private JTextField textISBN;
 	private JTextField txtAvailability;
+	SystemController controller = SystemController.getInstance();
 
 	/**
 	 * Create the panel.
@@ -61,6 +67,9 @@ public class AddBookUI extends JPanel {
 		
 		JComboBox cmbAuthors = new JComboBox();
 		cmbAuthors.setBounds(90, 314, 412, 38);
+		for(Author a: controller.getAuthors()){
+			cmbAuthors.addItem(a.toString());
+		}
 		add(cmbAuthors);
 		
 		JLabel lblNewLabel_4 = new JLabel("Availability :");

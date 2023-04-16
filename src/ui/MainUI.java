@@ -21,7 +21,7 @@ public class MainUI extends JFrame {
 
     private SystemController systemController = SystemController.getInstance();
     private JPanel contentPane;
-    private JPanel loader;
+    private static JPanel loader;
     private JButton btnNewMember;
     private JButton btnEditMember;
     private JButton btnViewMembers;
@@ -246,7 +246,7 @@ public class MainUI extends JFrame {
     }
 
 
-    private void LoadUI(JPanel panel) {
+    static void LoadUI(JPanel panel) {
         loader.removeAll();
         loader.add(panel);
         loader.revalidate();

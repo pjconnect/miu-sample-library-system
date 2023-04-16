@@ -1,5 +1,8 @@
 package ui;
 
+import controller.SystemController;
+import data.Member;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -17,10 +20,13 @@ import javax.swing.JTable;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.MatteBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MemberListUI extends JPanel {
 	private JTable table;
 	private JTable table_1;
+	private SystemController controller = SystemController.getInstance();
 
 	/**
 	 * Create the panel.
@@ -34,21 +40,35 @@ public class MemberListUI extends JPanel {
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 18));
 		add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("+ Add Member");
-		btnNewButton.setBackground(new Color(72, 61, 139));
-		btnNewButton.setBounds(527, 18, 148, 40);
-		add(btnNewButton);
+		JButton btnAddMember = new JButton("+ Add Member");
+		btnAddMember.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainUI.LoadUI(new AddMemberUI());
+			}
+		});
+		btnAddMember.setBackground(new Color(72, 61, 139));
+		btnAddMember.setBounds(527, 18, 148, 40);
+		add(btnAddMember);
 					
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(27, 79, 648, 415);
 		add(scrollPane);
 		
-	
-		String[][] data = {
-	        { "00001", "John", "Doe", "098719823" },
-	        { "00002", "Jane", "Doe", "879876872" },
-	        { "00003", "Baby", "Doe", "984798344" },
-        };
+
+		var members = controller.getMembers();
+		String[][] data = new String[members.size()][5];
+
+		var i = 0;
+		for(Member member:members){
+			data[i][0] = String.valueOf(member.MemberId);
+			data[i][1] = member.firstName;
+			data[i][2] = member.lastName;
+			data[i][3] = member.phone;
+			data[i][4] = member.address.toString();
+
+			i++;
+		}
+
         String[] columnNames = { "Member ID", "First Name", "Last Name", "Phone #" };
 		table = new JTable(data, columnNames);
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
