@@ -15,4 +15,10 @@ public class TestData {
         return tmpUsers;
     }
 
+    public static List<Address> getAddresses(){
+        var tmpAddresses = new ArrayList<Address>();
+        tmpAddresses.add(new Address("1000 n", "4th st", "BLD", "iowa"));
+        return tmpAddresses;
+    };
+
 }
