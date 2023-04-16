@@ -67,4 +67,8 @@ public class SystemController {
     public List<Author> getAuthors() {
         return df.getAuthors();
     }
+
+    public void addBook(Book book) {
+        df.addBook(book);
+    }
 }

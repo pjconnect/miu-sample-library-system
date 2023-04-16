@@ -4,16 +4,9 @@ import controller.SystemController;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -100,7 +93,11 @@ public class LoginUI extends JFrame {
         JButton btnLogin = new JButton("Login");
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                systemController.Login(txtUsername.getText(), txtPassword.getText());
+                var user = systemController.Login(txtUsername.getText(), txtPassword.getText());
+                if(user == null){
+                    JOptionPane.showMessageDialog(frame, "Wrong username or password", "Authentication" , JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
                 MainUI.showUI();
             }
         });

@@ -10,6 +10,7 @@ public class DataFacade {
     List<Address> addresses = new ArrayList<>();
     List<Member> members = new ArrayList<>();
     List<Author> authors = new ArrayList<>();
+    List<Book> books = new ArrayList<>();
 
     public static DataFacade getInstance() {
         if (dataFacade == null) {
@@ -51,5 +52,13 @@ public class DataFacade {
 
     public List<Author> getAuthors() {
         return this.authors;
+    }
+
+    public List<Book> getBooks(){
+        return this.books;
+    }
+
+    public void addBook(Book book) {
+        this.books.add(book);
     }
 }
