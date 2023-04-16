@@ -2,16 +2,22 @@ package data;
 
 public class User {
 
+	public final UserRoles role;
+	public final String username;
+	public final String password;
 
-	private final UserRoles role;
+	public final String firstName;
+	public final String lastName;
 
-	User(String username, String password, UserRoles role){
+	User(String username, String password, String firstName, String lastName, UserRoles role){
 		this.username = username;
 		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.role = role;
 	}
 	
-	public String username;
-	public String password;
+
+
 
 }
