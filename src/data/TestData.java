@@ -18,6 +18,9 @@ public class TestData {
     public static List<Address> getAddresses(){
         var tmpAddresses = new ArrayList<Address>();
         tmpAddresses.add(new Address("1000 n", "4th st", "BLD", "iowa"));
+        tmpAddresses.add(new Address("1001 n", "4th st", "BLD", "iowa"));
+        tmpAddresses.add(new Address("1002 n", "4th st", "BLD", "iowa"));
+        tmpAddresses.add(new Address("1003 n", "4th st", "BLD", "iowa"));
         return tmpAddresses;
     };
 
