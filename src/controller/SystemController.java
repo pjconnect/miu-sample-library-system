@@ -71,4 +71,8 @@ public class SystemController {
     public void addBook(Book book) {
         df.addBook(book);
     }
+
+    public List<Book> getBooks() {
+        return df.getBooks();
+    }
 }

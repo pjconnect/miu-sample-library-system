@@ -1,5 +1,9 @@
 package ui;
 
+import controller.SystemController;
+import data.Book;
+import data.Member;
+
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -14,6 +18,7 @@ public class AllBooksList extends JPanel {
 	private JTextField textField_1;
 	private JTable jtblBookList;
 	private JTable tblBookList;
+	SystemController controller = SystemController.getInstance();
 
 	/**
 	 * Create the panel.
@@ -52,11 +57,21 @@ public class AllBooksList extends JPanel {
 		JButton btnNewButton = new JButton("Search");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
 		btnNewButton.setBounds(317, 122, 114, 27);
-		add(btnNewButton); 
-		
-		String[][] data = {
-		        { "10001", "Software", "CSE0999", "Joe", "12"}
-	        };
+		add(btnNewButton);
+
+		var books = controller.getBooks();
+		String[][] data = new String[books.size()][5];
+
+		var i = 0;
+		for(Book book:books){
+			data[i][0] = book.title;
+			data[i][1] = book.title;
+			data[i][2] = book.ISBN;
+			data[i][3] = book.author.toString();
+			data[i][4] = String.valueOf(book.copyOfBooks);
+
+			i++;
+		}
 	        String[] columnNames = { "Book ID", "Title", "ISBN","Authors", "Availability" };
 	        tblBookList = new JTable(data,columnNames); 
 		tblBookList.setBounds(26, 207, 664, 277);

@@ -99,6 +99,9 @@ public class LoginUI extends JFrame {
                     return;
                 }
                 MainUI.showUI();
+                txtUsername.setText("");
+                txtPassword.setText("");
+                hideUI();
             }
         });
         btnLogin.setBounds(264, 292, 126, 44);
@@ -109,5 +112,11 @@ public class LoginUI extends JFrame {
         lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
         lblNewLabel_1.setBounds(9, 6, 384, 68);
         panel_1.add(lblNewLabel_1);
+    }
+
+
+
+    private void hideUI() {
+        frame.setVisible(false);
     }
 }

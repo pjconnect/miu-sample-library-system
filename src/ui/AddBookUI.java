@@ -1,19 +1,13 @@
 package ui;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 
 import controller.SystemController;
 import data.Address;
 import data.Author;
 import data.Book;
 
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -98,11 +92,11 @@ public class AddBookUI extends JPanel {
                 try {
                     avaiableBooks = Integer.parseInt(txtAvailability.getText());
                 }catch (Exception ex){
-
+                    JOptionPane.showMessageDialog(null, "Available books must be a number", "Available books" , JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 var selectedAuthor = controller.getAuthors().get(cmbAuthors.getSelectedIndex());
-                controller.addBook(new Book(txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks));
+                controller.addBook(new Book(controller.getBooks().size() + 1, txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks));
             }
         });
         btnSave.setFont(new Font("Lucida Bright", Font.BOLD, 17));
