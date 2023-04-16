@@ -75,4 +75,25 @@ public class SystemController {
     public List<Book> getBooks() {
         return df.getBooks();
     }
+
+    public boolean checkoutBook(Book book, Member member) {
+        //check availability
+        var checkoutList = df.getCheckoutBooks();
+        var outBooks = 0;
+        for(CheckoutBooks b: checkoutList){
+            if(b.book.equals(book)){
+                outBooks ++;
+            }
+        }
+        if(outBooks >= book.copyOfBooks){
+            return false;
+        }
+        //add to check out
+        df.addCheckoutBook(book, member);
+        return true;
+    }
+
+    public List<CheckoutBooks> getCheckoutBooks() {
+        return df.getCheckoutBooks();
+    }
 }

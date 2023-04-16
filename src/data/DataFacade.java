@@ -1,6 +1,8 @@
 package data;
 
+import java.awt.*;
 import java.util.*;
+import java.util.List;
 
 public class DataFacade {
 
@@ -11,6 +13,7 @@ public class DataFacade {
     List<Member> members = new ArrayList<>();
     List<Author> authors = new ArrayList<>();
     List<Book> books = new ArrayList<>();
+    List<CheckoutBooks> checkoutBooks = new ArrayList<>();
 
     public static DataFacade getInstance() {
         if (dataFacade == null) {
@@ -24,6 +27,9 @@ public class DataFacade {
         //populate test data
         users.addAll(TestData.getTestUsers());
         addresses.addAll(TestData.getAddresses());
+        authors.addAll(TestData.getAuthors());
+        books.addAll(TestData.getBooks());
+        members.addAll(TestData.getMembers());
     }
 
     public List<User> getUsers() {
@@ -60,5 +66,13 @@ public class DataFacade {
 
     public void addBook(Book book) {
         this.books.add(book);
+    }
+
+    public List<CheckoutBooks> getCheckoutBooks() {
+        return checkoutBooks;
+    }
+
+    public void addCheckoutBook(Book book, Member member) {
+        this.checkoutBooks.add(new CheckoutBooks(book, member));
     }
 }

@@ -1,21 +1,18 @@
 package ui;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-import javax.swing.UIManager;
 import java.awt.SystemColor;
-import javax.swing.JFormattedTextField;
 
-public class ReturnBook extends JPanel {
+public class ReturnBookUI extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public ReturnBook() {
+	public ReturnBookUI() {
 		setBackground(SystemColor.window);
 		setLayout(null);
 		
@@ -53,6 +50,10 @@ public class ReturnBook extends JPanel {
 		JButton btnAddA = new JButton("(+) Add Member");
 		btnAddA.setBounds(562, 180, 130, 29);
 		add(btnAddA);
+		
+		JButton btnCheckout = new JButton("Checkout");
+		btnCheckout.setBounds(433, 252, 117, 29);
+		add(btnCheckout);
 
 	}
 }

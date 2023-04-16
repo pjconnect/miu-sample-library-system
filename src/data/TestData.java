@@ -1,6 +1,7 @@
 package data;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class TestData {
@@ -24,4 +25,28 @@ public class TestData {
         return tmpAddresses;
     };
 
+    public static List<Author> getAuthors(){
+        var tmpAuthors = new ArrayList<Author>();
+        tmpAuthors.add(new Author("James", "Gordon", "456 56454 545", getAddresses().get(1)));
+        tmpAuthors.add(new Author("Kiyanu", "Reevs", "344 43434 545", getAddresses().get(2)));
+        return tmpAuthors;
+    }
+
+    public static List<Book> getBooks() {
+        var tmpBooks = new ArrayList<Book>();
+        tmpBooks.add(new Book(1, "Programming", "33s344", getAuthors().get(1), 2));
+        tmpBooks.add(new Book(2, "System Design", "3f3344", getAuthors().get(1), 1));
+        tmpBooks.add(new Book(3, "STC", "333s44", getAuthors().get(1), 0));
+        tmpBooks.add(new Book(4, "Consciousness", "3f3344", getAuthors().get(1), 1));
+        return tmpBooks;
+    }
+
+    public static List<Member> getMembers() {
+        var tmpMembers = new ArrayList<Member>();
+        tmpMembers.add(new Member(1, "James", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(1, "Name2", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(1, "Name3", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(1, "Name4", "Gordan", "3343 4343", getAddresses().get(1)));
+        return tmpMembers;
+    }
 }

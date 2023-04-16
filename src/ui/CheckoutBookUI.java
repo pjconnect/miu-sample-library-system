@@ -1,20 +1,22 @@
 package ui;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+import controller.SystemController;
+import data.Book;
+import data.Member;
+
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.UIManager;
 import java.awt.SystemColor;
-import javax.swing.JFormattedTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CheckoutBookUI extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
+
+	private SystemController controller = SystemController.getInstance();
 	public CheckoutBookUI() {
 		setBackground(SystemColor.window);
 		setLayout(null);
@@ -33,22 +35,36 @@ public class CheckoutBookUI extends JPanel {
 		add(lblLastName);
 		
 		JComboBox cmbBookList = new JComboBox();
-		cmbBookList.setEditable(true);
 		cmbBookList.setBounds(6, 109, 544, 37);
+		for(Book book: controller.getBooks()){
+			cmbBookList.addItem(book.toString());
+		}
 		add(cmbBookList);
-		
+
+		JComboBox cmbMemberList = new JComboBox();
+		cmbMemberList.setBounds(6, 180, 544, 37);
+		for(Member member: controller.getMembers()){
+			cmbMemberList.addItem(member.firstName);
+		}
+		add(cmbMemberList);
+
 		JButton btnAddBook = new JButton("(+) Add Book");
 		btnAddBook.setBounds(562, 109, 127, 29);
 		add(btnAddBook);
 		
 		JButton btnCheckoutBook = new JButton("Checkout Book");
+		btnCheckoutBook.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				var result = controller.checkoutBook(controller.getBooks().get(cmbBookList.getSelectedIndex()), controller.getMembers().get(cmbMemberList.getSelectedIndex()));
+				if(!result){
+					JOptionPane.showMessageDialog(null, "No available copies of this book", "Not available", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		btnCheckoutBook.setBounds(475, 479, 218, 75);
 		add(btnCheckoutBook);
 		
-		JComboBox cmbMemberList = new JComboBox();
-		cmbMemberList.setEditable(true);
-		cmbMemberList.setBounds(6, 180, 544, 37);
-		add(cmbMemberList);
+
 		
 		JButton btnAddA = new JButton("(+) Add Member");
 		btnAddA.setBounds(562, 180, 130, 29);

@@ -11,6 +11,8 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LoginUI extends JFrame {
 
@@ -81,27 +83,43 @@ public class LoginUI extends JFrame {
         panel_1.add(lblPassword);
 
         txtUsername = new JTextField();
+        txtUsername.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    login();
+                }
+        	}
+        });
         txtUsername.setBounds(22, 141, 368, 44);
         panel_1.add(txtUsername);
         txtUsername.setColumns(10);
 
         txtPassword = new JPasswordField();
+        txtPassword.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    login();
+                }
+        	}
+        });
         txtPassword.setBounds(22, 219, 371, 44);
         panel_1.add(txtPassword);
         txtPassword.setColumns(10);
 
         JButton btnLogin = new JButton("Login");
+        btnLogin.addKeyListener(new KeyAdapter() {
+        	@Override
+        	public void keyPressed(KeyEvent e) {
+        		if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    login();
+                }
+        	}
+        });
         btnLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                var user = systemController.Login(txtUsername.getText(), txtPassword.getText());
-                if(user == null){
-                    JOptionPane.showMessageDialog(frame, "Wrong username or password", "Authentication" , JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                MainUI.showUI();
-                txtUsername.setText("");
-                txtPassword.setText("");
-                hideUI();
+                login();
             }
         });
         btnLogin.setBounds(264, 292, 126, 44);
@@ -115,6 +133,17 @@ public class LoginUI extends JFrame {
     }
 
 
+    private void login() {
+    	var user = systemController.Login(txtUsername.getText(), txtPassword.getText());
+        if(user == null){
+            JOptionPane.showMessageDialog(frame, "Wrong username or password", "Authentication" , JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        MainUI.showUI();
+        txtUsername.setText("");
+        txtPassword.setText("");
+        hideUI();
+    }
 
     private void hideUI() {
         frame.setVisible(false);
