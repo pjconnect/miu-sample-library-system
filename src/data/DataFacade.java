@@ -17,6 +17,8 @@ public class DataFacade {
     List<Book> books = new ArrayList<>();
     List<CheckoutBooks> checkoutBooks = new ArrayList<>();
 
+    private final String persistenceStorageLocation = "./src/data/storage";
+
     public static DataFacade getInstance() {
         if (dataFacade == null) {
             dataFacade = new DataFacade();
@@ -104,31 +106,31 @@ public class DataFacade {
         // Serialization
         try {
             //Saving of object in a file
-            FileOutputStream dbAddresses = new FileOutputStream("libdb.addresses");
+            FileOutputStream dbAddresses = new FileOutputStream(persistenceStorageLocation + "/libdb.addresses");
             ObjectOutputStream out = new ObjectOutputStream(dbAddresses);
             out.writeObject(addresses);
             out.close();
             dbAddresses.close();
 
-            FileOutputStream dbMembers = new FileOutputStream("libdb.members");
+            FileOutputStream dbMembers = new FileOutputStream(persistenceStorageLocation + "/libdb.members");
             ObjectOutputStream membersOut = new ObjectOutputStream(dbMembers);
             membersOut.writeObject(members);
             membersOut.close();
             dbMembers.close();
 
-            FileOutputStream dbAuthor = new FileOutputStream("libdb.authors");
+            FileOutputStream dbAuthor = new FileOutputStream(persistenceStorageLocation + "/libdb.authors");
             ObjectOutputStream authorOut = new ObjectOutputStream(dbAuthor);
             authorOut.writeObject(authors);
             authorOut.close();
             dbAuthor.close();
 
-            FileOutputStream dbBooks = new FileOutputStream("libdb.books");
+            FileOutputStream dbBooks = new FileOutputStream(persistenceStorageLocation + "/libdb.books");
             ObjectOutputStream booksOut = new ObjectOutputStream(dbBooks);
             booksOut.writeObject(books);
             booksOut.close();
             dbBooks.close();
 
-            FileOutputStream dbCheckout = new FileOutputStream("libdb.checkoutBooks");
+            FileOutputStream dbCheckout = new FileOutputStream(persistenceStorageLocation + "/libdb.checkoutBooks");
             ObjectOutputStream checkoutOut = new ObjectOutputStream(dbCheckout);
             checkoutOut.writeObject(checkoutBooks);
             checkoutOut.close();
@@ -143,7 +145,7 @@ public class DataFacade {
     public void loadChanges() {
         // Deserialization
         try {
-            FileInputStream libAddress = new FileInputStream("libdb.addresses");
+            FileInputStream libAddress = new FileInputStream(persistenceStorageLocation + "/libdb.addresses");
             ObjectInputStream addressIn = new ObjectInputStream(libAddress);
             addresses = (List<Address>) addressIn.readObject();
             addressIn.close();
@@ -153,7 +155,7 @@ public class DataFacade {
         }
 
         try {
-            FileInputStream libMembers = new FileInputStream("libdb.members");
+            FileInputStream libMembers = new FileInputStream(persistenceStorageLocation + "/libdb.members");
             ObjectInputStream membersIn = new ObjectInputStream(libMembers);
             members = (List<Member>) membersIn.readObject();
             membersIn.close();
@@ -163,7 +165,7 @@ public class DataFacade {
         }
 
         try {
-            FileInputStream libAuth = new FileInputStream("libdb.authors");
+            FileInputStream libAuth = new FileInputStream(persistenceStorageLocation + "/libdb.authors");
             ObjectInputStream authIn = new ObjectInputStream(libAuth);
             authors = (List<Author>) authIn.readObject();
             authIn.close();
@@ -173,7 +175,7 @@ public class DataFacade {
         }
 
         try {
-            FileInputStream libBooks = new FileInputStream("libdb.books");
+            FileInputStream libBooks = new FileInputStream(persistenceStorageLocation + "/libdb.books");
             ObjectInputStream bookIn = new ObjectInputStream(libBooks);
             books = (List<Book>) bookIn.readObject();
             bookIn.close();
@@ -183,7 +185,7 @@ public class DataFacade {
         }
 
         try {
-            FileInputStream libCheckout = new FileInputStream("libdb.checkoutBooks");
+            FileInputStream libCheckout = new FileInputStream(persistenceStorageLocation + "/libdb.checkoutBooks");
             ObjectInputStream checkoutIn = new ObjectInputStream(libCheckout);
             checkoutBooks = (List<CheckoutBooks>) checkoutIn.readObject();
             checkoutIn.close();
