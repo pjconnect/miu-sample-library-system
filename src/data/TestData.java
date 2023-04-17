@@ -34,19 +34,19 @@ public class TestData {
 
     public static List<Book> getBooks() {
         var tmpBooks = new ArrayList<Book>();
-        tmpBooks.add(new Book(1, "Programming", "33s344", getAuthors().get(1), 2, 7));
-        tmpBooks.add(new Book(2, "System Design", "3f3344", getAuthors().get(1), 1, 21));
-        tmpBooks.add(new Book(3, "STC", "333s44", getAuthors().get(1), 0, 7));
-        tmpBooks.add(new Book(4, "Consciousness", "3f3344", getAuthors().get(1), 1, 7));
+        tmpBooks.add(new Book(1, "Programming", "33s3544", getAuthors().get(1), 2, 7));
+        tmpBooks.add(new Book(2, "System Design", "3f33434", getAuthors().get(1), 1, 21));
+        tmpBooks.add(new Book(3, "STC", "333ffxs44", getAuthors().get(1), 0, 7));
+        tmpBooks.add(new Book(4, "Consciousness", "3f3s344", getAuthors().get(1), 1, 7));
         return tmpBooks;
     }
 
     public static List<Member> getMembers() {
         var tmpMembers = new ArrayList<Member>();
         tmpMembers.add(new Member(1, "James", "Gordan", "3343 4343", getAddresses().get(1)));
-        tmpMembers.add(new Member(1, "Name2", "Gordan", "3343 4343", getAddresses().get(1)));
-        tmpMembers.add(new Member(1, "Name3", "Gordan", "3343 4343", getAddresses().get(1)));
-        tmpMembers.add(new Member(1, "Name4", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(2, "Name2", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(3, "Name3", "Gordan", "3343 4343", getAddresses().get(1)));
+        tmpMembers.add(new Member(4, "Name4", "Gordan", "3343 4343", getAddresses().get(1)));
         return tmpMembers;
     }
 }

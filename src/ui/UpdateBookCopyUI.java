@@ -21,8 +21,6 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 
 public class UpdateBookCopyUI extends JPanel {
-    private JTextField textField;
-    private JTextField textField_1;
     private JTable jtblBookList;
     private JTable tblBookList;
     SystemController controller = SystemController.getInstance();
@@ -40,33 +38,6 @@ public class UpdateBookCopyUI extends JPanel {
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         lblNewLabel.setBounds(26, 10, 370, 32);
         add(lblNewLabel);
-
-        JLabel lblNewLabel_1 = new JLabel("Book Id :");
-        lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-        lblNewLabel_1.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        lblNewLabel_1.setBounds(26, 71, 108, 32);
-        add(lblNewLabel_1);
-
-        textField = new JTextField();
-        textField.setBounds(138, 71, 150, 29);
-        add(textField);
-        textField.setColumns(10);
-
-        JLabel lblNewLabel_1_1 = new JLabel("ISBN :");
-        lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-        lblNewLabel_1_1.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        lblNewLabel_1_1.setBounds(26, 113, 108, 32);
-        add(lblNewLabel_1_1);
-
-        textField_1 = new JTextField();
-        textField_1.setBounds(138, 117, 150, 32);
-        add(textField_1);
-        textField_1.setColumns(10);
-
-        JButton btnNewButton = new JButton("Search");
-        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-        btnNewButton.setBounds(317, 122, 114, 27);
-        add(btnNewButton);
 
         var books = controller.getBooks();
         String[][] data = new String[books.size()][5];
@@ -97,7 +68,7 @@ public class UpdateBookCopyUI extends JPanel {
 			}
         });
         tblBookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        tblBookList.setBounds(26, 207, 664, 159);
+        tblBookList.setBounds(26, 54, 664, 312);
 
         add(tblBookList);
         

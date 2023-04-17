@@ -3,6 +3,7 @@ package controller;
 import data.*;
 
 import java.util.List;
+import java.util.Objects;
 
 public class SystemController {
 
@@ -145,5 +146,30 @@ public class SystemController {
 
     public Book getBook(int selectedIndex) {
         return df.getBooks().get(selectedIndex);
+    }
+
+    public int getMemberIndexById(String idStr) {
+        var id = Integer.parseInt(idStr);
+        var index = 0;
+        var members = df.getMembers();
+        for(Member m: members){
+            if(m.MemberId == id){
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
+    public int getBookIndexByISBN(String isbn) {
+        var index = 0;
+        var books = df.getBooks();
+        for(Book m: books){
+            if(Objects.equals(m.ISBN, isbn)){
+                return index;
+            }
+            index++;
+        }
+        return -1;
     }
 }

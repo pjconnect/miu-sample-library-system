@@ -82,6 +82,11 @@ public class AddBookUI extends JPanel {
         txtAvailability.setColumns(10);
 
         JButton btnAddAuthors = new JButton("Add");
+        btnAddAuthors.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		MainUI.LoadUI(new AddAuthorUI());
+        	}
+        });
         btnAddAuthors.setFont(new Font("Tahoma", Font.BOLD, 17));
         btnAddAuthors.setBounds(512, 314, 85, 38);
         add(btnAddAuthors);
@@ -103,6 +108,7 @@ public class AddBookUI extends JPanel {
                     days = 7;
                 }
                 controller.addBook(txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks, days);
+                JOptionPane.showMessageDialog(null, "Success");
             }
         });
         btnSave.setFont(new Font("Lucida Bright", Font.BOLD, 17));
