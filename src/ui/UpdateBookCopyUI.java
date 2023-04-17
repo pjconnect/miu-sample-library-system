@@ -115,9 +115,8 @@ public class UpdateBookCopyUI extends JPanel {
         btnUpdateCopies = new JButton("Update copies");
         btnUpdateCopies.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		var selectedRow = tblBookList.getSelectedRow();
-                var selectedBook = controller.getBooks().get(selectedRow);
-                controller.updateBookCopies(selectedBook, Integer.parseInt(txtAvailableCopies.getText()));
+                var msg = controller.updateBookCopies(tblBookList.getSelectedRow(), txtAvailableCopies.getText());
+                JOptionPane.showMessageDialog(null, msg);
                 MainUI.LoadUI(new UpdateBookCopyUI());
         	}
         });

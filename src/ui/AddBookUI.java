@@ -96,12 +96,13 @@ public class AddBookUI extends JPanel {
                     JOptionPane.showMessageDialog(null, "Number of copies must be a number", "Available books" , JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+                //adding book
                 var selectedAuthor = controller.getAuthors().get(cmbAuthors.getSelectedIndex());
                 var days = 21;
                 if(cmbMaxDuration.getSelectedIndex() == 1){
                     days = 7;
                 }
-                controller.addBook(new Book(controller.getBooks().size() + 1, txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks, days));
+                controller.addBook(txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks, days);
             }
         });
         btnSave.setFont(new Font("Lucida Bright", Font.BOLD, 17));

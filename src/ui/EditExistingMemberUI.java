@@ -83,8 +83,7 @@ public class EditExistingMemberUI extends JPanel {
 		JButton btnAddMember = new JButton("Edit Member");
 		btnAddMember.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				var selectedAddress = controller.getAddresses().get(cmbAddress.getSelectedIndex());
-				controller.editMember(selectedMember, txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), selectedAddress);
+				controller.editMember(selectedMember, txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), cmbAddress.getSelectedIndex());
 				JOptionPane.showMessageDialog(null, "Successfully edited", "Success", JOptionPane.PLAIN_MESSAGE);
 				MainUI.LoadUI(new EditExistingMemberUI());
 			}
@@ -95,7 +94,7 @@ public class EditExistingMemberUI extends JPanel {
 		JComboBox cmbMembers = new JComboBox();
 		cmbMembers.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				selectedMember = controller.getMembers().get(cmbMembers.getSelectedIndex());
+				selectedMember = controller.getSelectedMember(cmbMembers.getSelectedIndex());
 				txtFirstName.setText(selectedMember.getFirstName());
 				txtLastName.setText(selectedMember.getLastName());
 				txtPhone.setText(selectedMember.getPhone());

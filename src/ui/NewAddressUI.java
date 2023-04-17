@@ -46,7 +46,7 @@ public class NewAddressUI extends JFrame {
 		JButton btnAddNew = new JButton("Add New");
 		btnAddNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.addAddress(new Address(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText()));
+				controller.addAddress(txtStreet.getText(), txtCity.getText(), txtState.getText(), txtZip.getText());
 				setVisible(false);
 
 				if(refreshPanel instanceof AddAuthorUI){

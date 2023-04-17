@@ -118,9 +118,7 @@ public class ReturnBookUI extends JPanel {
                     JOptionPane.showMessageDialog(null, "Select a book from the table to return");
                     return;
                 }
-
-                var selectedCheckout = controller.getCheckoutBooks().get(selectedRow);
-                controller.returnBook(selectedCheckout);
+                controller.returnBook(selectedRow);
         	}
         });
         btnReturnBook.setBounds(498, 438, 194, 82);

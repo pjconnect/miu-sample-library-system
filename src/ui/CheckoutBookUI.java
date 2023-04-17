@@ -65,7 +65,7 @@ public class CheckoutBookUI extends JPanel {
 		JButton btnCheckoutBook = new JButton("Checkout Book");
 		btnCheckoutBook.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				var result = controller.checkoutBook(controller.getBooks().get(cmbBookList.getSelectedIndex()), controller.getMembers().get(cmbMemberList.getSelectedIndex()));
+				var result = controller.checkoutBook(cmbBookList.getSelectedIndex(), cmbMemberList.getSelectedIndex());
 				if(!result){
 					JOptionPane.showMessageDialog(null, "No available copies of this book", "Not available", JOptionPane.INFORMATION_MESSAGE);
 				}else{

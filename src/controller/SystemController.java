@@ -2,7 +2,6 @@ package controller;
 
 import data.*;
 
-import javax.swing.*;
 import java.util.List;
 
 public class SystemController {
@@ -47,14 +46,6 @@ public class SystemController {
     public List<Address> getAddresses() {
         return this.df.getAddresses();
     }
-    
-    public void addAddress(Address address){
-        df.addAddress(address);
-    }
-
-    public void addMember(Member member) {
-        df.addMember(member);
-    }
 
     public List<Member> getMembers() {
         return df.getMembers();
@@ -68,15 +59,14 @@ public class SystemController {
         return df.getAuthors();
     }
 
-    public void addBook(Book book) {
-        df.addBook(book);
-    }
 
     public List<Book> getBooks() {
         return df.getBooks();
     }
 
-    public boolean checkoutBook(Book book, Member member) {
+    public boolean checkoutBook(int bookIndex, int memberIndex) {
+        var book = df.getBooks().get(bookIndex);
+        var member = df.getMembers().get(memberIndex);
         //check availability
         var checkoutList = df.getCheckoutBooks();
         var outBooks = 0;
@@ -97,12 +87,20 @@ public class SystemController {
         return df.getCheckoutBooks();
     }
 
-    public void returnBook(CheckoutBooks selectedCheckout) {
+    public void returnBook(int selectedCheckoutIndex) {
+        var selectedCheckout = df.getCheckoutBooks().get(selectedCheckoutIndex);
         df.removeCheckout(selectedCheckout);
     }
 
-    public void updateBookCopies(Book selectedBook, int numberOfCopies) {
-        selectedBook.setCopyOfBooks(numberOfCopies);
+    public String updateBookCopies(int selectedBookIndex, String numberOfCopiesStr) {
+        try {
+            var selectedBook = df.getBooks().get(selectedBookIndex);
+            var numberOfCopies = Integer.parseInt(numberOfCopiesStr);
+            selectedBook.setCopyOfBooks(numberOfCopies);
+            return "Success";
+        }catch(Exception ex){
+            return ex.getMessage();
+        }
     }
 
     public int getAddressIndex(Address address) {
@@ -117,10 +115,31 @@ public class SystemController {
         return index;
     }
 
-    public void editMember(Member selectedMember, String firstName, String lastName, String phone, Address selectedAddress) {
+    public void editMember(Member selectedMember, String firstName, String lastName, String phone, int selectedAddressIndex) {
+        var address = df.getAddresses().get(selectedAddressIndex);
         selectedMember.setFirstName(firstName);
         selectedMember.setLastName(lastName);
         selectedMember.setPhone(phone);
-        selectedMember.setAddress(selectedAddress);
+        selectedMember.setAddress(address);
+    }
+
+    public void addBook(String title, String ISBN, Author selectedAuthor, int avaiableBooks, int days) {
+        df.addBook(new Book(df.getBooks().size()+1, title, ISBN, selectedAuthor, avaiableBooks, days));
+    }
+
+    public Member getSelectedMember(int selectedIndex) {
+        return df.getMembers().get(selectedIndex);
+    }
+
+    public Address getSelectedAddress(int selectedIndex) {
+        return df.getAddresses().get(selectedIndex);
+    }
+
+    public void addMember(String firstName, String lastName, String phone, int selectedAddressIndex) {
+        df.addMember(new Member((df.getMembers().size() + 1), firstName, lastName, phone, getSelectedAddress(selectedAddressIndex)));
+    }
+
+    public void addAddress(String street, String city, String state, String zip) {
+        df.addAddress(new Address(street, city, state,zip));
     }
 }
