@@ -143,57 +143,53 @@ public class DataFacade {
     public void loadChanges() {
         // Deserialization
         try {
-            try {
-                FileInputStream libAddress = new FileInputStream("libdb.addresses");
-                ObjectInputStream addressIn = new ObjectInputStream(libAddress);
-                addresses = (List<Address>) addressIn.readObject();
-                addressIn.close();
-                libAddress.close();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            try {
-                FileInputStream libMembers = new FileInputStream("libdb.members");
-                ObjectInputStream membersIn = new ObjectInputStream(libMembers);
-                members = (List<Member>) membersIn.readObject();
-                membersIn.close();
-                libMembers.close();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            try {
-                FileInputStream libAuth = new FileInputStream("libdb.authors");
-                ObjectInputStream authIn = new ObjectInputStream(libAuth);
-                authors = (List<Author>) authIn.readObject();
-                authIn.close();
-                libAuth.close();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            try {
-                FileInputStream libBooks = new FileInputStream("libdb.books");
-                ObjectInputStream bookIn = new ObjectInputStream(libBooks);
-                books = (List<Book>) bookIn.readObject();
-                bookIn.close();
-                libBooks.close();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            try {
-                FileInputStream libCheckout = new FileInputStream("libdb.checkoutBooks");
-                ObjectInputStream checkoutIn = new ObjectInputStream(libCheckout);
-                checkoutBooks = (List<CheckoutBooks>) checkoutIn.readObject();
-                checkoutIn.close();
-                libCheckout.close();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
+            FileInputStream libAddress = new FileInputStream("libdb.addresses");
+            ObjectInputStream addressIn = new ObjectInputStream(libAddress);
+            addresses = (List<Address>) addressIn.readObject();
+            addressIn.close();
+            libAddress.close();
         } catch (Exception ex) {
-            System.out.println("IOException is caught");
+            System.out.println(ex.getMessage());
+        }
+
+        try {
+            FileInputStream libMembers = new FileInputStream("libdb.members");
+            ObjectInputStream membersIn = new ObjectInputStream(libMembers);
+            members = (List<Member>) membersIn.readObject();
+            membersIn.close();
+            libMembers.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        try {
+            FileInputStream libAuth = new FileInputStream("libdb.authors");
+            ObjectInputStream authIn = new ObjectInputStream(libAuth);
+            authors = (List<Author>) authIn.readObject();
+            authIn.close();
+            libAuth.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        try {
+            FileInputStream libBooks = new FileInputStream("libdb.books");
+            ObjectInputStream bookIn = new ObjectInputStream(libBooks);
+            books = (List<Book>) bookIn.readObject();
+            bookIn.close();
+            libBooks.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        try {
+            FileInputStream libCheckout = new FileInputStream("libdb.checkoutBooks");
+            ObjectInputStream checkoutIn = new ObjectInputStream(libCheckout);
+            checkoutBooks = (List<CheckoutBooks>) checkoutIn.readObject();
+            checkoutIn.close();
+            libCheckout.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
     }
 
