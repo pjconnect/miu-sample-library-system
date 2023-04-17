@@ -142,4 +142,8 @@ public class SystemController {
     public void addAddress(String street, String city, String state, String zip) {
         df.addAddress(new Address(street, city, state,zip));
     }
+
+    public Book getBook(int selectedIndex) {
+        return df.getBooks().get(selectedIndex);
+    }
 }

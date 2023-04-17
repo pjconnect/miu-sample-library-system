@@ -11,13 +11,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CheckoutBookUI extends JPanel {
 
 	private SystemController controller = SystemController.getInstance();
 	JLabel lblCheckoutDaysInfo;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField txtMemberId;
+	private JTextField txtBookId;
 	
 	/**
 	 * Create the panel.
@@ -36,7 +38,7 @@ public class CheckoutBookUI extends JPanel {
 		add(lblNewLabel_1);
 		
 		JLabel lblLastName = new JLabel("Select a Member");
-		lblLastName.setBounds(17, 158, 178, 16);
+		lblLastName.setBounds(17, 158, 122, 16);
 		add(lblLastName);
 
 		lblCheckoutDaysInfo = new JLabel("Maximum checkout days");
@@ -46,7 +48,7 @@ public class CheckoutBookUI extends JPanel {
 		JComboBox cmbBookList = new JComboBox();
 		cmbBookList.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
-				var book = controller.getBooks().get(cmbBookList.getSelectedIndex());
+				var book = controller.getBook(cmbBookList.getSelectedIndex());
 				lblCheckoutDaysInfo.setText("Maximum checkout days: "+book.maxCheckoutDays);
 				
 			}
@@ -78,15 +80,23 @@ public class CheckoutBookUI extends JPanel {
 		btnCheckoutBook.setBounds(332, 272, 218, 75);
 		add(btnCheckoutBook);
 		
-		textField = new JTextField();
-		textField.setBounds(134, 153, 130, 26);
-		add(textField);
-		textField.setColumns(10);
+		txtMemberId = new JTextField();
+		txtMemberId.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                    
+                }
+			}
+		});
+		txtMemberId.setBounds(134, 153, 130, 26);
+		add(txtMemberId);
+		txtMemberId.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(186, 82, 130, 26);
-		add(textField_1);
-		textField_1.setColumns(10);
+		txtBookId = new JTextField();
+		txtBookId.setBounds(186, 82, 130, 26);
+		add(txtBookId);
+		txtBookId.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("(press enter)");
 		lblNewLabel_2.setBounds(317, 87, 116, 16);

@@ -84,7 +84,6 @@ public class UpdateBookCopyUI extends JPanel {
         String[] columnNames = {"Book ID", "Title", "ISBN", "Authors", "Availability"};
         tblBookList = new JTable(data, columnNames);
         tblBookList.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-           
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				var selectedRow = tblBookList.getSelectedRow();
@@ -95,7 +94,6 @@ public class UpdateBookCopyUI extends JPanel {
                 btnUpdateCopies.setEnabled(true);
                 var selectedBook = controller.getBooks().get(selectedRow);
                 txtAvailableCopies.setText(String.valueOf(selectedBook.getCopyOfBooks()));
-				
 			}
         });
         tblBookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
