@@ -25,12 +25,12 @@ public class AddMemberUI extends JPanel {
 		setLayout(null);
 
 		txtFirstName = new JTextField();
-		txtFirstName.setBounds(6, 109, 687, 37);
+		txtFirstName.setBounds(17, 109, 664, 37);
 		add(txtFirstName);
 		txtFirstName.setColumns(10);
 
 		JLabel lblNewLabel = new JLabel("First Name");
-		lblNewLabel.setBounds(17, 87, 91, 16);
+		lblNewLabel.setBounds(28, 87, 91, 16);
 		add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Add New Member");
@@ -40,28 +40,28 @@ public class AddMemberUI extends JPanel {
 
 		txtLastName = new JTextField();
 		txtLastName.setColumns(10);
-		txtLastName.setBounds(6, 180, 687, 37);
+		txtLastName.setBounds(17, 180, 664, 37);
 		add(txtLastName);
 
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setBounds(17, 158, 91, 16);
+		lblLastName.setBounds(28, 158, 91, 16);
 		add(lblLastName);
 
 		JLabel lblPhoneNumber = new JLabel("Phone Number");
-		lblPhoneNumber.setBounds(17, 229, 234, 16);
+		lblPhoneNumber.setBounds(28, 229, 234, 16);
 		add(lblPhoneNumber);
 
 		txtPhone = new JTextField();
 		txtPhone.setColumns(10);
-		txtPhone.setBounds(6, 251, 687, 37);
+		txtPhone.setBounds(17, 251, 664, 37);
 		add(txtPhone);
 
 		JLabel lblPhoneNumber_1 = new JLabel("Address");
-		lblPhoneNumber_1.setBounds(17, 307, 234, 16);
+		lblPhoneNumber_1.setBounds(28, 307, 234, 16);
 		add(lblPhoneNumber_1);
 
 		JComboBox cmbAddress = new JComboBox();
-		cmbAddress.setBounds(6, 335, 554, 27);
+		cmbAddress.setBounds(17, 335, 554, 27);
 
 		for(Address a: systemController.getAddresses()){
 			cmbAddress.addItem(a.toString());
@@ -85,7 +85,7 @@ public class AddMemberUI extends JPanel {
 				MainUI.LoadUI(new AddMemberUI());
 			}
 		});
-		btnAddMember.setBounds(475, 479, 218, 75);
+		btnAddMember.setBounds(475, 479, 200, 50);
 		add(btnAddMember);
 
 	}

@@ -68,8 +68,8 @@ public class AddAuthorUI extends JPanel {
 		JButton btnAddAuthor = new JButton("+ Add Author");
 		btnAddAuthor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				var selectedAddress = controller.getAddresses().get(cmbAddress.getSelectedIndex());
-				controller.addAuthor(new Author(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), selectedAddress));
+				var msg = controller.addAuthor(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), cmbAddress.getSelectedIndex());
+				JOptionPane.showMessageDialog(null, msg);
 			}
 		});
 		btnAddAuthor.setBackground(new Color(72, 61, 139));

@@ -51,7 +51,7 @@ public class LoginUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 800, 500);
         contentPane = new JPanel();
-        contentPane.setBackground(SystemColor.window);
+        contentPane.setBackground(Color.DARK_GRAY);
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
         setContentPane(contentPane);
@@ -70,15 +70,18 @@ public class LoginUI extends JFrame {
         panel.add(lblNewLabel_2);
 
         JPanel panel_1 = new JPanel();
+        panel_1.setBackground(Color.DARK_GRAY);
         panel_1.setBounds(385, 6, 409, 460);
         contentPane.add(panel_1);
         panel_1.setLayout(null);
 
         JLabel lblNewLabel = new JLabel("Username");
+        lblNewLabel.setForeground(Color.WHITE);
         lblNewLabel.setBounds(32, 125, 62, 16);
         panel_1.add(lblNewLabel);
 
         JLabel lblPassword = new JLabel("Password");
+        lblPassword.setForeground(Color.WHITE);
         lblPassword.setBounds(32, 203, 59, 16);
         panel_1.add(lblPassword);
 
@@ -122,12 +125,13 @@ public class LoginUI extends JFrame {
                 login();
             }
         });
-        btnLogin.setBounds(264, 292, 126, 44);
+        btnLogin.setBounds(264, 388, 126, 44);
         panel_1.add(btnLogin);
 
         JLabel lblNewLabel_1 = new JLabel("MPP - LIBRARY SYSTEM");
+        lblNewLabel_1.setForeground(Color.WHITE);
         lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+        lblNewLabel_1.setFont(new Font("Lucida Grande", Font.PLAIN, 23));
         lblNewLabel_1.setBounds(9, 6, 384, 68);
         panel_1.add(lblNewLabel_1);
     }

@@ -172,4 +172,10 @@ public class SystemController {
         }
         return -1;
     }
+
+    public String addAuthor(String firstName, String lastName, String phone, int selectedAddressIndex) {
+        var address = getSelectedAddress(selectedAddressIndex);
+        df.addAuthor(new Author(firstName, lastName, phone, address));
+        return "Success";
+    }
 }
