@@ -34,10 +34,10 @@ public class TestData {
 
     public static List<Book> getBooks() {
         var tmpBooks = new ArrayList<Book>();
-        tmpBooks.add(new Book(1, "Programming", "33s344", getAuthors().get(1), 2));
-        tmpBooks.add(new Book(2, "System Design", "3f3344", getAuthors().get(1), 1));
-        tmpBooks.add(new Book(3, "STC", "333s44", getAuthors().get(1), 0));
-        tmpBooks.add(new Book(4, "Consciousness", "3f3344", getAuthors().get(1), 1));
+        tmpBooks.add(new Book(1, "Programming", "33s344", getAuthors().get(1), 2, 7));
+        tmpBooks.add(new Book(2, "System Design", "3f3344", getAuthors().get(1), 1, 21));
+        tmpBooks.add(new Book(3, "STC", "333s44", getAuthors().get(1), 0, 7));
+        tmpBooks.add(new Book(4, "Consciousness", "3f3344", getAuthors().get(1), 1, 7));
         return tmpBooks;
     }
 

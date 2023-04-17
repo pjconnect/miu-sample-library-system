@@ -104,4 +104,23 @@ public class SystemController {
     public void updateBookCopies(Book selectedBook, int numberOfCopies) {
         selectedBook.setCopyOfBooks(numberOfCopies);
     }
+
+    public int getAddressIndex(Address address) {
+        var addresses = df.getAddresses();
+        var index = 0;
+        for(Address a:addresses){
+            if(a.equals(address)){
+                return index;
+            }
+            index++;
+        }
+        return index;
+    }
+
+    public void editMember(Member selectedMember, String firstName, String lastName, String phone, Address selectedAddress) {
+        selectedMember.setFirstName(firstName);
+        selectedMember.setLastName(lastName);
+        selectedMember.setPhone(phone);
+        selectedMember.setAddress(selectedAddress);
+    }
 }

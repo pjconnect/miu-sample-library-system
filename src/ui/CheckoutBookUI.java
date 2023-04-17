@@ -9,10 +9,13 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
 public class CheckoutBookUI extends JPanel {
 
 	private SystemController controller = SystemController.getInstance();
+	JLabel lblCheckoutDaysInfo;
 	
 	/**
 	 * Create the panel.
@@ -33,8 +36,19 @@ public class CheckoutBookUI extends JPanel {
 		JLabel lblLastName = new JLabel("Select a Member");
 		lblLastName.setBounds(17, 158, 178, 16);
 		add(lblLastName);
-		
+
+		lblCheckoutDaysInfo = new JLabel("Maximum checkout days");
+		lblCheckoutDaysInfo.setBounds(16, 229, 286, 16);
+		add(lblCheckoutDaysInfo);
+
 		JComboBox cmbBookList = new JComboBox();
+		cmbBookList.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) {
+				var book = controller.getBooks().get(cmbBookList.getSelectedIndex());
+				lblCheckoutDaysInfo.setText("Maximum checkout days: "+book.maxCheckoutDays);
+				
+			}
+		});
 		cmbBookList.setBounds(6, 109, 544, 37);
 		for(Book book: controller.getBooks()){
 			cmbBookList.addItem(book.toString());
@@ -44,7 +58,7 @@ public class CheckoutBookUI extends JPanel {
 		JComboBox cmbMemberList = new JComboBox();
 		cmbMemberList.setBounds(6, 180, 544, 37);
 		for(Member member: controller.getMembers()){
-			cmbMemberList.addItem(member.firstName);
+			cmbMemberList.addItem(member.getFirstName());
 		}
 		add(cmbMemberList);
 		
@@ -61,6 +75,8 @@ public class CheckoutBookUI extends JPanel {
 		});
 		btnCheckoutBook.setBounds(332, 272, 218, 75);
 		add(btnCheckoutBook);
+		
+
 
 	}
 }

@@ -16,6 +16,7 @@ public class AddBookUI extends JPanel {
     private JTextField txtISBN;
     private JTextField txtAvailability;
     SystemController controller = SystemController.getInstance();
+    JComboBox cmbMaxDuration;
 
     /**
      * Create the panel.
@@ -69,14 +70,14 @@ public class AddBookUI extends JPanel {
         }
         add(cmbAuthors);
 
-        JLabel lblNewLabel_4 = new JLabel("Availability :");
+        JLabel lblNewLabel_4 = new JLabel("Number of copies :");
         lblNewLabel_4.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_4.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        lblNewLabel_4.setBounds(90, 375, 125, 32);
+        lblNewLabel_4.setBounds(100, 364, 225, 32);
         add(lblNewLabel_4);
 
         txtAvailability = new JTextField();
-        txtAvailability.setBounds(90, 417, 412, 38);
+        txtAvailability.setBounds(90, 408, 412, 38);
         add(txtAvailability);
         txtAvailability.setColumns(10);
 
@@ -92,21 +93,32 @@ public class AddBookUI extends JPanel {
                 try {
                     avaiableBooks = Integer.parseInt(txtAvailability.getText());
                 }catch (Exception ex){
-                    JOptionPane.showMessageDialog(null, "Available books must be a number", "Available books" , JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Number of copies must be a number", "Available books" , JOptionPane.ERROR_MESSAGE);
                     return;
                 }
                 var selectedAuthor = controller.getAuthors().get(cmbAuthors.getSelectedIndex());
-                controller.addBook(new Book(controller.getBooks().size() + 1, txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks));
+                var days = 21;
+                if(cmbMaxDuration.getSelectedIndex() == 1){
+                    days = 7;
+                }
+                controller.addBook(new Book(controller.getBooks().size() + 1, txtTitle.getText(), txtISBN.getText(), selectedAuthor, avaiableBooks, days));
             }
         });
         btnSave.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        btnSave.setBounds(90, 500, 108, 32);
+        btnSave.setBounds(512, 492, 133, 54);
         add(btnSave);
-
-        JButton btnCancel = new JButton("Cancel");
-        btnCancel.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        btnCancel.setBounds(207, 500, 108, 32);
-        add(btnCancel);
+        
+        cmbMaxDuration = new JComboBox();
+        cmbMaxDuration.setBounds(90, 502, 412, 38);
+        cmbMaxDuration.addItem("21 days");
+        cmbMaxDuration.addItem("7 days");
+        add(cmbMaxDuration);
+        
+        JLabel lblNewLabel_4_1 = new JLabel("Maximum checkout duration");
+        lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.LEFT);
+        lblNewLabel_4_1.setFont(new Font("Dialog", Font.BOLD, 17));
+        lblNewLabel_4_1.setBounds(90, 458, 276, 32);
+        add(lblNewLabel_4_1);
 
     }
 }

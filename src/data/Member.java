@@ -9,8 +9,8 @@ public class Member extends Person{
         this.MemberId = memberId;
     }
 
-//    @Override
-//    public String toString(){
-//        return firstName + " "
-//    }
+    @Override
+    public String toString(){
+        return getFirstName() + " " + getLastName();
+    }
 }

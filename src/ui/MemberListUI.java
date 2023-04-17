@@ -61,10 +61,10 @@ public class MemberListUI extends JPanel {
 		var i = 0;
 		for(Member member:members){
 			data[i][0] = String.valueOf(member.MemberId);
-			data[i][1] = member.firstName;
-			data[i][2] = member.lastName;
-			data[i][3] = member.phone;
-			data[i][4] = member.address.toString();
+			data[i][1] = member.getFirstName();
+			data[i][2] = member.getLastName();
+			data[i][3] = member.getPhone();
+			data[i][4] = member.getAddress().toString();
 
 			i++;
 		}

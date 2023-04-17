@@ -118,6 +118,11 @@ public class MainUI extends JFrame {
         btnNewMember.setOpaque(true);
 
         btnEditMember = new JButton("Edit existing member");
+        btnEditMember.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		LoadUI(new EditExistingMemberUI());
+        	}
+        });
         btnPanel.add(btnEditMember);
         btnEditMember.setBackground(UIManager.getColor("CheckBox.background"));
         btnEditMember.setOpaque(true);

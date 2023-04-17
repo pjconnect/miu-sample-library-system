@@ -6,6 +6,7 @@ public class Book {
     public final String ISBN;
     public final Author author;
     private int copyOfBooks;
+    public final int maxCheckoutDays;
 
     public int getCopyOfBooks(){
         return copyOfBooks;
@@ -15,12 +16,13 @@ public class Book {
         copyOfBooks = copies;
     }
 
-    public Book(int id, String title, String ISBN, Author author, int copyOfBooks) {
+    public Book(int id, String title, String ISBN, Author author, int copyOfBooks, int maxCheckoutDays) {
         this.ID = id;
         this.title = title;
         this.ISBN = ISBN;
         this.author = author;
         this.copyOfBooks = copyOfBooks;
+        this.maxCheckoutDays = maxCheckoutDays;
     }
 
     @Override

@@ -11,6 +11,8 @@ import controller.SystemController;
 import data.CheckoutBooks;
 
 import java.awt.Font;
+import java.time.format.DateTimeFormatter;
+import javax.swing.ListSelectionModel;
 
 public class CheckoutBookListUI extends JPanel {
     private JTable table;
@@ -31,7 +33,7 @@ public class CheckoutBookListUI extends JPanel {
         JLabel lblNewLabel = new JLabel("View Checkouts");
         lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-        lblNewLabel.setBounds(26, 10, 125, 32);
+        lblNewLabel.setBounds(26, 10, 185, 32);
         add(lblNewLabel);
 
         JLabel lblNewLabel_1 = new JLabel("Book Id :");
@@ -62,7 +64,7 @@ public class CheckoutBookListUI extends JPanel {
         add(btnNewButton);
 
         var books = controller.getCheckoutBooks();
-        String[][] data = new String[books.size()][5];
+        String[][] data = new String[books.size()][6];
 
         var i = 0;
         for (CheckoutBooks checkout : books) {
@@ -70,14 +72,15 @@ public class CheckoutBookListUI extends JPanel {
             data[i][1] = checkout.book.ISBN;
             data[i][2] = checkout.book.author.toString();
             data[i][3] = String.valueOf(checkout.member.MemberId);
-            data[i][4] = checkout.member.toString();
+            data[i][4] = checkout.member.getFirstName();
+            data[i][5] = checkout.dueDate.format(DateTimeFormatter.ISO_DATE);
 
             i++;
         }
-        String[] columnNames = {"Book Title", "ISBN", "Author", "Member ID", "Member Name"};
+        String[] columnNames = {"Book Title", "ISBN", "Author", "Member ID", "Member Name", "Due Date"};
         tblBookList = new JTable(data, columnNames);
-        tblBookList.setShowGrid(false);
-        tblBookList.setRowSelectionAllowed(false);
+        tblBookList.setFillsViewportHeight(true);
+        tblBookList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tblBookList.setBounds(26, 208, 616, 277);
 
 

@@ -4,13 +4,8 @@ import controller.SystemController;
 import data.Address;
 import data.Member;
 
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.UIManager;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -88,7 +83,8 @@ public class AddMemberUI extends JPanel {
 				var members = systemController.getMembers();
 				var selectedAddress = systemController.getAddresses().get(cmbAddress.getSelectedIndex());
 				systemController.addMember(new Member((members.size() + 1), txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), selectedAddress));
-				MainUI.LoadUI(new MemberListUI());
+				JOptionPane.showMessageDialog(null, "Successfully added", "Success", JOptionPane.PLAIN_MESSAGE);
+				MainUI.LoadUI(new AddMemberUI());
 			}
 		});
 		btnAddMember.setBounds(475, 479, 218, 75);
