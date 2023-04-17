@@ -34,7 +34,7 @@ public class AddAuthorUI extends JPanel {
 		add(lblNewLabel);
 
 		JComboBox cmbAddress = new JComboBox();
-		cmbAddress.setBounds(27, 349, 554, 27);
+		cmbAddress.setBounds(27, 349, 400, 27);
 		add(cmbAddress);
 
 		JButton btnAddAddress = new JButton("New Address");
@@ -43,7 +43,7 @@ public class AddAuthorUI extends JPanel {
 				NewAddressUI.showUI(AddAuthorUI.this);
 			}
 		});
-		btnAddAddress.setBounds(593, 348, 117, 29);
+		btnAddAddress.setBounds(453, 348, 117, 29);
 		add(btnAddAddress);
 
 		for(Address a: controller.getAddresses()){
@@ -70,7 +70,6 @@ public class AddAuthorUI extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				var selectedAddress = controller.getAddresses().get(cmbAddress.getSelectedIndex());
 				controller.addAuthor(new Author(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), selectedAddress));
-
 			}
 		});
 		btnAddAuthor.setBackground(new Color(72, 61, 139));
