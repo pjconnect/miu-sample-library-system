@@ -19,6 +19,7 @@ import java.awt.event.WindowEvent;
 
 public class MainUI extends JFrame {
 
+    private static JPanel currentPanel;
     private SystemController systemController = SystemController.getInstance();
     private JPanel contentPane;
     private static JPanel loader;
@@ -267,9 +268,11 @@ public class MainUI extends JFrame {
 
 
     static void LoadUI(JPanel panel) {
+        currentPanel = panel;
         loader.removeAll();
         loader.add(panel);
         loader.revalidate();
-
     }
+
+
 }

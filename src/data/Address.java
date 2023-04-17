@@ -7,7 +7,7 @@ public class Address {
     public final String State;
     public final String Zip;
 
-    Address(String street, String city, String State, String Zip){
+    public Address(String street, String city, String State, String Zip){
         this.Street = street;
         this.City = city;
         this.State = State;

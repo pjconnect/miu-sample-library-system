@@ -28,7 +28,7 @@ public class CheckoutBookListUI extends JPanel {
     public CheckoutBookListUI() {
         setLayout(null);
 
-        JLabel lblNewLabel = new JLabel("Checkouts");
+        JLabel lblNewLabel = new JLabel("View Checkouts");
         lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         lblNewLabel.setBounds(26, 10, 125, 32);
@@ -41,24 +41,24 @@ public class CheckoutBookListUI extends JPanel {
         add(lblNewLabel_1);
 
         textField = new JTextField();
-        textField.setBounds(138, 71, 150, 29);
+        textField.setBounds(167, 75, 150, 29);
         add(textField);
         textField.setColumns(10);
 
         JLabel lblNewLabel_1_1 = new JLabel("ISBN :");
         lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_1_1.setFont(new Font("Lucida Bright", Font.BOLD, 17));
-        lblNewLabel_1_1.setBounds(26, 113, 108, 32);
+        lblNewLabel_1_1.setBounds(348, 71, 108, 32);
         add(lblNewLabel_1_1);
 
         textField_1 = new JTextField();
-        textField_1.setBounds(138, 117, 150, 32);
+        textField_1.setBounds(469, 69, 150, 32);
         add(textField_1);
         textField_1.setColumns(10);
 
         JButton btnNewButton = new JButton("Search");
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 17));
-        btnNewButton.setBounds(336, 207, 114, 27);
+        btnNewButton.setBounds(504, 157, 114, 27);
         add(btnNewButton);
 
         var books = controller.getCheckoutBooks();
@@ -76,7 +76,9 @@ public class CheckoutBookListUI extends JPanel {
         }
         String[] columnNames = {"Book Title", "ISBN", "Author", "Member ID", "Member Name"};
         tblBookList = new JTable(data, columnNames);
-        tblBookList.setBounds(30, 333, 664, 277);
+        tblBookList.setShowGrid(false);
+        tblBookList.setRowSelectionAllowed(false);
+        tblBookList.setBounds(26, 208, 616, 277);
 
 
         add(tblBookList);
@@ -84,23 +86,23 @@ public class CheckoutBookListUI extends JPanel {
         JLabel lblNewLabel_1_1_1 = new JLabel("Member Name");
         lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_1_1_1.setFont(new Font("Dialog", Font.BOLD, 17));
-        lblNewLabel_1_1_1.setBounds(26, 159, 125, 32);
+        lblNewLabel_1_1_1.setBounds(24, 115, 125, 32);
         add(lblNewLabel_1_1_1);
         
         textField_2 = new JTextField();
         textField_2.setColumns(10);
-        textField_2.setBounds(169, 161, 150, 32);
+        textField_2.setBounds(167, 117, 150, 32);
         add(textField_2);
         
         JLabel lblNewLabel_1_1_1_1 = new JLabel("Member ID");
         lblNewLabel_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_1_1_1_1.setFont(new Font("Dialog", Font.BOLD, 17));
-        lblNewLabel_1_1_1_1.setBounds(26, 203, 125, 32);
+        lblNewLabel_1_1_1_1.setBounds(345, 115, 125, 32);
         add(lblNewLabel_1_1_1_1);
         
         textField_3 = new JTextField();
         textField_3.setColumns(10);
-        textField_3.setBounds(169, 205, 150, 32);
+        textField_3.setBounds(469, 113, 150, 32);
         add(textField_3);
 
     }

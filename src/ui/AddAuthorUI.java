@@ -1,20 +1,15 @@
 package ui;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.awt.Font;
-import javax.swing.SwingConstants;
 
 import controller.SystemController;
 import data.Address;
 import data.Author;
 
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JComboBox;
 
 public class AddAuthorUI extends JPanel {
 	private JTextField txtFirstName;
@@ -43,6 +38,11 @@ public class AddAuthorUI extends JPanel {
 		add(cmbAddress);
 
 		JButton btnAddAddress = new JButton("New Address");
+		btnAddAddress.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewAddressUI.showUI(AddAuthorUI.this);
+			}
+		});
 		btnAddAddress.setBounds(593, 348, 117, 29);
 		add(btnAddAddress);
 
@@ -70,6 +70,7 @@ public class AddAuthorUI extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				var selectedAddress = controller.getAddresses().get(cmbAddress.getSelectedIndex());
 				controller.addAuthor(new Author(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), selectedAddress));
+
 			}
 		});
 		btnAddAuthor.setBackground(new Color(72, 61, 139));

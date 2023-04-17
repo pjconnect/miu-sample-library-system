@@ -47,10 +47,6 @@ public class CheckoutBookUI extends JPanel {
 			cmbMemberList.addItem(member.firstName);
 		}
 		add(cmbMemberList);
-
-		JButton btnAddBook = new JButton("(+) Add Book");
-		btnAddBook.setBounds(562, 109, 127, 29);
-		add(btnAddBook);
 		
 		JButton btnCheckoutBook = new JButton("Checkout Book");
 		btnCheckoutBook.addActionListener(new ActionListener() {
@@ -58,17 +54,13 @@ public class CheckoutBookUI extends JPanel {
 				var result = controller.checkoutBook(controller.getBooks().get(cmbBookList.getSelectedIndex()), controller.getMembers().get(cmbMemberList.getSelectedIndex()));
 				if(!result){
 					JOptionPane.showMessageDialog(null, "No available copies of this book", "Not available", JOptionPane.INFORMATION_MESSAGE);
+				}else{
+					JOptionPane.showMessageDialog(null, "The book successfully checked out!", "Success", JOptionPane.PLAIN_MESSAGE);
 				}
 			}
 		});
-		btnCheckoutBook.setBounds(475, 479, 218, 75);
+		btnCheckoutBook.setBounds(332, 272, 218, 75);
 		add(btnCheckoutBook);
-		
-
-		
-		JButton btnAddA = new JButton("(+) Add Member");
-		btnAddA.setBounds(562, 180, 130, 29);
-		add(btnAddA);
 
 	}
 }

@@ -74,8 +74,7 @@ public class MemberListUI extends JPanel {
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.getTableHeader().setFont(new Font("Lucida Grande", Font.BOLD, 13));
 		MatteBorder border = new MatteBorder(1, 1, 1, 1, Color.BLACK);
-		table.setBorder(border);		
-		table.setColumnSelectionAllowed(true);
+		table.setBorder(border);
 		scrollPane.setViewportView(table);
 
 	}

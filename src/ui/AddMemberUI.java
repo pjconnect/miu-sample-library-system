@@ -76,6 +76,7 @@ public class AddMemberUI extends JPanel {
 		JButton btnAddAddress = new JButton("New Address");
 		btnAddAddress.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				NewAddressUI.showUI(AddMemberUI.this);
 			}
 		});
 		btnAddAddress.setBounds(572, 334, 117, 29);
