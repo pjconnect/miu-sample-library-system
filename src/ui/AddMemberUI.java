@@ -80,7 +80,7 @@ public class AddMemberUI extends JPanel {
 		JButton btnAddMember = new JButton("Add Member");
 		btnAddMember.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				systemController.addMember(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), cmbAddress.getSelectedIndex()));
+				systemController.addMember(txtFirstName.getText(), txtLastName.getText(), txtPhone.getText(), cmbAddress.getSelectedIndex());
 				JOptionPane.showMessageDialog(null, "Successfully added", "Success", JOptionPane.PLAIN_MESSAGE);
 				MainUI.LoadUI(new AddMemberUI());
 			}
