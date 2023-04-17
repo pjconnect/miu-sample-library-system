@@ -1,6 +1,8 @@
 package data;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     public final int ID;
     public final String title;
     public final String ISBN;

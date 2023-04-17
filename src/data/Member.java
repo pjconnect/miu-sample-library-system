@@ -1,6 +1,8 @@
 package data;
 
-public class Member extends Person{
+import java.io.Serializable;
+
+public class Member extends Person implements Serializable {
     public final int MemberId;
 
 

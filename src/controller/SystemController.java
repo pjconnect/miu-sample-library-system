@@ -96,7 +96,7 @@ public class SystemController {
         try {
             var selectedBook = df.getBooks().get(selectedBookIndex);
             var numberOfCopies = Integer.parseInt(numberOfCopiesStr);
-            selectedBook.setCopyOfBooks(numberOfCopies);
+            df.uploadCopyOfBooks(selectedBook,  numberOfCopies);
             return "Success";
         }catch(Exception ex){
             return ex.getMessage();

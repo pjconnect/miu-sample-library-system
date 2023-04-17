@@ -1,8 +1,9 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Address {
+public class Address implements Serializable {
 
     public final String Street;
     public final String City;

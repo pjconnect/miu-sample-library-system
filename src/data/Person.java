@@ -1,6 +1,8 @@
 package data;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String firstName;
     private String lastName;
     private String phone;
@@ -38,10 +40,15 @@ public abstract class Person {
         return address;
     }
 
-    Person(String firstName, String lastName, String phone, Address address){
+    Person(String firstName, String lastName, String phone, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
     }
 }

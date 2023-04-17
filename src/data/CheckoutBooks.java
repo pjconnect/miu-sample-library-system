@@ -1,8 +1,9 @@
 package data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class CheckoutBooks {
+public class CheckoutBooks implements Serializable {
 
     public final Book book;
     public final Member member;
