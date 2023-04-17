@@ -16,6 +16,8 @@ public class CheckoutBookUI extends JPanel {
 
 	private SystemController controller = SystemController.getInstance();
 	JLabel lblCheckoutDaysInfo;
+	private JTextField textField;
+	private JTextField textField_1;
 	
 	/**
 	 * Create the panel.
@@ -75,6 +77,24 @@ public class CheckoutBookUI extends JPanel {
 		});
 		btnCheckoutBook.setBounds(332, 272, 218, 75);
 		add(btnCheckoutBook);
+		
+		textField = new JTextField();
+		textField.setBounds(134, 153, 130, 26);
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(186, 82, 130, 26);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("(press enter)");
+		lblNewLabel_2.setBounds(317, 87, 116, 16);
+		add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("(press enter)");
+		lblNewLabel_2_1.setBounds(265, 158, 116, 16);
+		add(lblNewLabel_2_1);
 		
 
 
