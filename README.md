@@ -1,8 +1,7 @@
 # MIU MPP LibrarySystem
-
-Group 01
 ---
 
-### Please find login credentials in data/TestData class
+### It uses custom data storage using the file system. 
+### For login credentials look inside the `./data/TestData` class
 
-### Main method inside ui/LoginUI
+### Run the main method inside ui/LoginUI
